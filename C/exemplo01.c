@@ -8,6 +8,6 @@ int main(){
     scanf("%d",&b);
 
     c=a+b;
-    printf("O resultado da soma é %d",c);
+    printf("O resultado da soma é %d \n",c);
 
 }
