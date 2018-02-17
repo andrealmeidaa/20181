@@ -6,8 +6,6 @@ int main(){
     scanf("%d",&a);
     printf("Digite o segundo número:");
     scanf("%d",&b);
-
     c=a+b;
     printf("O resultado da soma é %d \n",c);
-
 }
