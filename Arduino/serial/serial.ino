@@ -14,8 +14,6 @@ void loop()
   String comando;
   if (Serial.available()>0){
   	comando=Serial.readString();
-    comando.trim();
-    Serial.println(comando);
     if (comando.equals("Vermelho ON")){
     	digitalWrite(LED_VERMELHO,HIGH);
       Serial.println("Entrei");
