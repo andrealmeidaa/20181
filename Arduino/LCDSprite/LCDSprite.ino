@@ -1,17 +1,20 @@
 
 #include <LiquidCrystal.h>
 
-
-const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+#include <HCSR04.h>
+const int rs = 8, en = 9, d4 = 4, d5 = 5, d6 = 6, d7 = 7;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-UltraSonicDistanceSensor sensor(9,8);
+UltraSonicDistanceSensor sensor(3,4);
+
 void setup() {
+
   lcd.begin(16, 2);
   lcd.print("Distancia");
 }
 void loop() {
   double distancia=sensor.measureDistanceCm();
   lcd.setCursor(0, 1);
-  lcd.print(millis());
+  lcd.print(distancia);
+  delay(1000);
 }
 
