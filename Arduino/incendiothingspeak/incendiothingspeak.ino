@@ -3,14 +3,14 @@
 #include <SoftwareSerial.h>
 
 const int PINO_D0=7;
-const int TX=11;
+const int TX=9;
 const int RX=10;
 const String API_KEY="xxxxxxx";
 const String HOST="api.thingspeak.com";
 const int PORT=80;
 int countTimeCommand;
 boolean found=false;
-SoftwareSerial esp8266(RX,TX);
+SoftwareSerial esp8266(TX,RX);
 void setup() {
  pinMode(PIN_A0,INPUT);
  pinMode(PINO_D0,INPUT);
