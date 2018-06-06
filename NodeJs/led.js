@@ -6,6 +6,7 @@ var LED=new GPIO(23,'out'); //Usa o modelo BCM dos pinos
 
 http.createServer(function (request, response) {
 	fileSystem.readFile('led.html',function(error,data){
+	if (error) throw error;
 	var dadoRequisicao=request.url;
 	if (dadoRequisicao=='/on'){
 		LED.writeSync(1);
