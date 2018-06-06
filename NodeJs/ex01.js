@@ -5,5 +5,6 @@ var http = require('http'); //Importa o pacote http
 //res --> Encapsula os dados e métodos relativos a resposta a ser emitida pelo servidor.
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'}); //Define o cabeçalho a ser escrito
-    res.end('<h1>Primeiro programa Node.JS<h1>'); //Encerra a resposta com HTML
+    res.write('<h1>Primeiro programa Node.JS - Write<h1>');//Envia o conteúdo ao cliente
+    res.end(); //Encerra a resposta
 }).listen(8080);
