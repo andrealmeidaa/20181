@@ -1,7 +1,9 @@
+
 var http = require('http'); //Importa o pacote http
 var fileSystem=require('fs');
 var GPIO=require('onoff').Gpio;
-var LED=new GPIO(4,'out'); //Usa o modelo BCM dos pinos
+var LED=new GPIO(23,'out'); //Usa o modelo BCM dos pinos
+
 http.createServer(function (request, response) {
 	fileSystem.readFile('led.html',function(error,data){
 	var dadoRequisicao=request.url;
