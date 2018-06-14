@@ -2,10 +2,11 @@ var five = require("johnny-five");
 var board = new five.Board();
 var ThingSpeakClient=require("thingspeakclient");
 var clienteThingSpeak=new ThingSpeakClient();
-var CHANNELID=0;
-var API_KEY="xxxx";
+var CHANNELID=514823;
+var API_KEY="EM9X7J4XLMSFK6FM";
 
-clienteThingSpeak.attachChannel(CHANNELID,{writeKey:API_KEY},retornoThingSpeak);
+clienteThingSpeak.attachChannel(CHANNELID,
+{writeKey:API_KEY},retornoThingSpeak);
 
 
 board.on("ready", function() {
@@ -15,7 +16,8 @@ board.on("ready", function() {
   sensorChama.on("change",function(){
 	var dado=this.scaleTo(0,100);
 	if (dado!=null){
-		clienteThingSpeak.updateChannel(CHANNELID,{field1:dado},retornoThingSpeak);
+		clienteThingSpeak.updateChannel(CHANNELID,
+		{field1:dado},retornoThingSpeak);
 		console.log(this.scaleTo(0,100));
 		if (dado<=20){
 			led.on();
