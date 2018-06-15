@@ -8,16 +8,16 @@ cliente.on('connect',function(){
 });
 
 board.on('ready',function(){
-	var servo=new five.Servo({pin:5,type:'continuous'});
+	var servo=new five.Servo({pin:5});
 
 cliente.on('message',function(topic,message,pacote){
     var comando=message.toString();
     console.log(comando);
     
     if(comando=='ON')
-		servo.cw(0.5);
-	else
-		servo.ccw(0.5);
+	servo.to(180,1000);
+    else
+        servo.to(0,1000);
 });
 });
 
