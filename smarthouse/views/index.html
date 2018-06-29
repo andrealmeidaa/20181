@@ -118,7 +118,7 @@
                     </div>
                     <div class="card-body">
                         
-                        <label class="switch switch-text switch-success"><input type="checkbox" class="switch-input" checked="true"> <span data-on="On" data-off="Off" class="switch-label"></span> <span class="switch-handle"></span></label>
+                        <label class="switch switch-text switch-success"><input type="checkbox" id="led" class="switch-input" > <span data-on="On" data-off="Off" class="switch-label"></span> <span class="switch-handle"></span></label>
 
                       
                     </div>
@@ -131,7 +131,7 @@
                     </div>
                     <div class="card-body">
                         
-                        <label class="switch switch-text switch-success"><input type="checkbox" class="switch-input" checked="true"> <span data-on="On" data-off="Off" class="switch-label"></span> <span class="switch-handle"></span></label>
+                        <label class="switch switch-text switch-success"><input id="motor" type="checkbox" class="switch-input" > <span data-on="On" data-off="Off" class="switch-label"></span> <span class="switch-handle"></span></label>
 
                       
                     </div>
@@ -165,7 +165,7 @@
 
                         </div><!--/.row-->
                         <div class="col-sm-6" >
-                            <iframe width="560" height="260" style="border: 1px solid #cccccc;" 
+                            <iframe width="460" height="260" style="border: 1px solid #cccccc;" 
                             src="https://thingspeak.com/channels/493249/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15">
                         </iframe>
                         </div>
@@ -187,7 +187,7 @@
 
     <!-- Right Panel -->
 
-    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
@@ -218,6 +218,26 @@
             } );
         } )( jQuery );
     </script>
+    <script>
+        jQuery(document).ready(function(){
+           jQuery("#led").change(function(){
+               var url=window.location.protocol+"//"+window.location.host
+               if (this.checked==true){
+                   jQuery.get(url+"/ligarled?acao=ON");
+               }else{
+                   jQuery.get(url+"/ligarled?acao=OFF");
+               }
+           });
+           jQuery("#motor").change(function(){
+               var url=window.location.protocol+"//"+window.location.host
+               if (this.checked==true){
+                   jQuery.get(url+"/ligarmotor?acao=ON");
+               }else{
+                   jQuery.get(url+"/ligarmotor?acao=OFF");
+               }
+           });
+        });
+       </script>
 
 </body>
 </html>
