@@ -2,8 +2,8 @@ var five = require("johnny-five");
 var board = new five.Board();
 var ThingSpeakClient=require("thingspeakclient");
 var clienteThingSpeak=new ThingSpeakClient();
-var CHANNELID=514823;
-var API_KEY="EM9X7J4XLMSFK6FM";
+var CHANNELID=0;
+var API_KEY="";
 
 clienteThingSpeak.attachChannel(CHANNELID,
 {writeKey:API_KEY},retornoThingSpeak);
